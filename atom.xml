@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Title]]></title>
+  <title><![CDATA[kanaabe]]></title>
   <link href="http://kanaabe.github.io/atom.xml" rel="self"/>
   <link href="http://kanaabe.github.io/"/>
-  <updated>2014-10-15T23:07:28-04:00</updated>
+  <updated>2014-10-16T02:53:52-04:00</updated>
   <id>http://kanaabe.github.io/</id>
   <author>
     <name><![CDATA[Kana Abe]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[My First Post on Octopress]]></title>
-    <link href="http://kanaabe.github.io/blog/2014/10/15/my-first-post-on-octopress/"/>
-    <updated>2014-10-15T00:00:00-04:00</updated>
-    <id>http://kanaabe.github.io/blog/2014/10/15/my-first-post-on-octopress</id>
+    <title type="html"><![CDATA[<3]]></title>
+    <link href="http://kanaabe.github.io/blog/2014/10/16/%3C3/"/>
+    <updated>2014-10-16T02:25:51-04:00</updated>
+    <id>http://kanaabe.github.io/blog/2014/10/16/<3</id>
     <content type="html"><![CDATA[
 ]]></content>
   </entry>
