@@ -2,12 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://kanaabe.github.io
-title: Title
-subtitle: A blogging framework for hackers.
+url: http://blog.kanaabe.com
+title: Kana's Blog
+subtitle: Learning to code while blogging
 author: Kana Abe
 simple_search: https://www.google.com/search
-description: Blog about art and code related findings
+description: Blog about art and code
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
