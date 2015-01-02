@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://blog.kanaabe.com
-title: Kana's Blog
-subtitle: Learning to code while blogging
+title: Code Snacks
+subtitle: Lessons Learned in Software Development
 author: Kana Abe
 simple_search: https://www.google.com/search
-description: Blog about art and code
+description: Hey there! My name is Kana. I'm an artistic developer interested in data and knowledge discovery. I recently graduated from The Flatiron School and attended Rutgers University studying CS and Art. I am committed to code as my practice and desire in expertise.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in

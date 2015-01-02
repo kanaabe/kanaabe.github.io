@@ -18,7 +18,7 @@ D3 is built on top of these common standards:
 4. SVG
 
 Before starting D3, we should be somewhat familiar with the concepts above. I’m pretty familiar with 1-3, so today I’m writing about.. SVG
-
+<!--more-->
 ##What is SVG?
 SVG stands for ‘Scalable Vector Graphics’
 A type of graphic component for the web

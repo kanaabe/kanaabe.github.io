@@ -17,7 +17,7 @@ Coming from a small [background](sites.google.com/site/digihumanlab/research) in
 After explaining to my boyfriend the concept of ‘scraping’, I asked him, “What do you want me to scrape for you?”
 “I want to know how to title my Reddit posts so it catches the most attention.”
 Great, problem defined.
-
+<!--more-->
 ##Spec It Out
 Immediately I understand that solving this problem will take lots and lots of data and time. Therefore, the goal of this blog post is to lay out the foundation of a project that I can build on.
 
