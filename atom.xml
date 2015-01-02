@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[kanaabe]]></title>
-  <link href="http://kanaabe.github.io/atom.xml" rel="self"/>
-  <link href="http://kanaabe.github.io/"/>
-  <updated>2014-11-13T23:49:52-05:00</updated>
-  <id>http://kanaabe.github.io/</id>
+  <title><![CDATA[Code Snacks]]></title>
+  <link href="http://blog.kanaabe.com/atom.xml" rel="self"/>
+  <link href="http://blog.kanaabe.com/"/>
+  <updated>2015-01-02T15:58:35-05:00</updated>
+  <id>http://blog.kanaabe.com/</id>
   <author>
     <name><![CDATA[Kana Abe]]></name>
     
@@ -14,40 +14,40 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Getting Started with SVG]]></title>
-    <link href="http://kanaabe.github.io/blog/2014/11/13/getting-started-with-d3/"/>
-    <updated>2014-11-13T20:58:52-05:00</updated>
-    <id>http://kanaabe.github.io/blog/2014/11/13/getting-started-with-d3</id>
-    <content type="html"><![CDATA[<p>Everyone seems to have at least <em>some</em> interest in data visualization lately. It&rsquo;s pretty, it&rsquo;s informative, and it makes us feel like we&rsquo;re learning something without reading long lines of text. One of the most popular Javascript libraries for creating data visualizations are with D3.js.</p>
+    <title type="html"><![CDATA[Getting Started With SVG]]></title>
+    <link href="http://blog.kanaabe.com/blog/2014/11/13/getting-started-with-svg/"/>
+    <updated>2014-11-13T14:57:01-05:00</updated>
+    <id>http://blog.kanaabe.com/blog/2014/11/13/getting-started-with-svg</id>
+    <content type="html"><![CDATA[<p>Getting Started With SVG</p>
+
+<p>Everyone seems to have at least some interest in data visualization lately. It’s pretty, it’s informative, and it makes us feel like we’re learning something without reading long lines of text. One of the most popular Javascript libraries for creating data visualizations are with D3.js.</p>
 
 <p>D3 is built on top of these common standards:</p>
 
-<p>  1 .  HTML</p>
-
-<p>  2 .  CSS</p>
-
-<p>  3 .  The DOM</p>
-
-<p>  4 .  SVG</p>
-
-<p>Before starting D3, we should be somewhat familiar with the concepts above. I&rsquo;m pretty familiar with 1-3, so today I&rsquo;m writing about.. SVG</p>
-
-<h1>What is SVG?</h1>
-
-<ul>
-<li>SVG stands for &lsquo;Scalable Vector Graphics&rsquo;</li>
-<li>A type of graphic component for the web</li>
-<li>SVG is vector-based. (This means images SCALE nicely)</li>
-<li>SVG is written in XML format</li>
-<li>SVG can be directly embedded in HTML</li>
-<li>CSS can apply to SVG elements!</li>
-</ul>
+<ol>
+<li>HTML</li>
+<li>CSS</li>
+<li>The DOM</li>
+<li>SVG</li>
+</ol>
 
 
-<h1>A Basic Circle</h1>
+<p>Before starting D3, we should be somewhat familiar with the concepts above. I’m pretty familiar with 1-3, so today I’m writing about.. SVG</p>
+
+<!--more-->
+
+
+<h2>What is SVG?</h2>
+
+<p>SVG stands for ‘Scalable Vector Graphics’
+A type of graphic component for the web
+SVG is vector-based. (This means images SCALE nicely)
+SVG is written in XML format
+SVG can be directly embedded in HTML
+CSS can apply to SVG elements!</p>
 
 <p><svg width="120" height="120">
-  <circle cx="60" cy="60" r="40" stroke="blue" stroke-width="2" fill="yellow" />
+  <circle cx="60" cy="60" r="50" stroke="blue" stroke-width="2" fill="yellow" />
 </svg></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -59,19 +59,19 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Breaking down the syntax:
-- Enclosed in an <code>&lt;svg&gt;&lt;/svg&gt;</code> tag</p>
+<h2>Breaking down the syntax:</h2>
 
 <ul>
-<li><p>The <code>width</code> and <code>height</code> correspond to the image size</p></li>
-<li><p>Create the circle with the <code>&lt;circle&gt;</code> tag</p></li>
-<li><p><code>cx</code> and <code>cy</code> refer to the &lsquo;center x&rsquo; and &lsquo;center y&rsquo; which places the circle&rsquo;s middle relative to the image size. If you want the circle in the middle, <code>cx</code> and <code>cy</code> default to (0,0)</p></li>
-<li><p><code>r</code> refers to the circle&rsquo;s radius</p></li>
-<li><p><code>stroke</code>,<code>stroke-width</code>,and <code>fill</code> are all visual properties to change the stroke and color</p></li>
+<li>Enclosed in an <code>&lt;svg&gt;&lt;/svg&gt;</code> tag</li>
+<li>The width and height correspond to the image size</li>
+<li>Create the circle with the <code>&lt;circle&gt;</code> tag</li>
+<li>cx and cy refer to the ‘center x’ and ‘center y’ which places the circle’s middle relative to the image size. If you want the circle in the middle, cx and cy default to (0,0)</li>
+<li>r refers to the circle’s radius</li>
+<li>stroke,stroke-width,and fill are all visual properties to change the stroke and color</li>
 </ul>
 
 
-<h1>With CSS</h1>
+<h2>With CSS</h2>
 
 <p><svg width="400" height="200">
   <rect width="400" height="200" style="fill:blue;stroke:pink;stroke-width:10;fill-opacity:0.1;stroke-opacity:0.9" />
@@ -86,22 +86,22 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Here, we&rsquo;re using the rectangle tag. I used in-line CSS to demonstrate how we can pass in regular CSS definitions to set the element&rsquo;s properties.</p>
+<p>Here, we’re using the rectangle tag. I used in-line CSS to demonstrate how we can pass in regular CSS definitions to set the element’s properties.</p>
 
-<h2>Other elements</h2>
+<h2>Other elements:</h2>
 
 <ul>
-<li>Ellipse <ellipse></li>
-<li>Line <line></li>
-<li>Polyline <polyline></li>
-<li>Polygon <polygon></li>
-<li>Path <path></li>
+<li>Ellipse</li>
+<li>Line</li>
+<li>Polyline</li>
+<li>Polygon</li>
+<li>Path</li>
 </ul>
 
 
-<h1><code>&lt;g&gt;</code> tag</h1>
+<h2><code>&lt;g&gt;</code> tag</h2>
 
-<p>One very important tag used a LOT in D3 is the <code>&lt;g&gt;</code> tag. This tag simply groups elements together. This is especially important in making <em>transformations</em> for D3.</p>
+<p>One very important tag used a LOT in D3 is the <g> tag. This tag simply groups elements together. This is especially important in making transformations for D3.</p>
 
 <p><svg>
     <g>
@@ -159,14 +159,12 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Notice, the only change we made here is that I transformed the entire group. The important line here is <code>&lt;g transform="rotate(45 50 50) translate(20 0)"&gt;</code> in the opening g tag. It adds the rotation and translation to our SVG image.</p>
+<p>Notice, the only change we made here is that I transformed the entire group. The important line here is <g transform="rotate(45 50 50) translate(20 0)"> in the opening g tag. It adds the rotation and translation to our SVG image.</p>
 
-<p>YAY IT&rsquo;S LINEAR ALGEBRA ALL OVER AGAIN!</p>
+<p>YAY IT’S LINEAR ALGEBRA ALL OVER AGAIN!</p>
 
-<p><code>scale</code> is a another transformation that might come in handy to you.</p>
-
-<p><svg width="400" height="400">
-    <g transform="rotate(45 50 50) translate(100 0) scale(2 2)">
+<p><svg height="400">
+    <g transform="rotate(45 50 50) translate(50 0) scale(1.5)">
       <rect x="10" y="20" height="50" width="75"
           style="stroke: black; fill: yellow"/>
       <text x="10" y="90" style="stroke: black;">
@@ -174,103 +172,40 @@
     </g>
 </svg></p>
 
-<p>Stay tuned for my next post on how to integrate with D3!</p>
+<p>Scale is a another transformation that might come in handy to you.</p>
 
-<p>Let&rsquo;s see what you can make!</p>
-
-<p>&lt;3 Kana</p>
+<p>Let’s see what you can make!</p>
 
 <p>third example courtesy of: <a href="http://tutorials.jenkov.com/svg/g-element.html">http://tutorials.jenkov.com/svg/g-element.html</a></p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[The things I do when I code.]]></title>
-    <link href="http://kanaabe.github.io/blog/2014/10/31/the-things-i-do-when-i-code/"/>
-    <updated>2014-10-31T00:19:50-04:00</updated>
-    <id>http://kanaabe.github.io/blog/2014/10/31/the-things-i-do-when-i-code</id>
-    <content type="html"><![CDATA[<h2>When I try to explain to my friends what Ruby is..</h2>
-
-<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/3fbd56b1-169f-42f5-8167-5f491a6dd983/00000177.png" alt="alt text" /></p>
-
-<h2>At least Avi teaches us the right way..</h2>
-
-<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/552e6f26-91f5-4fc4-8dca-86a01a0b9c10/00000183.png" alt="alt text" /></p>
-
-<h2>When I fork a lab, open it up in Sublime, and run &lsquo;rspec&rsquo;&hellip;</h2>
-
-<p><img src="http://media.giphy.com/media/YP2Og89Dxm8cU/giphy.gif" alt="alt text" /></p>
-
-<h2>My thoughts right before scraping pages and pages of data..</h2>
-
-<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/051e95cb-2556-4ff6-ba5e-1f67720106af/00000182.png" alt="alt text" /></p>
-
-<h2>Time for lunch!</h2>
-
-<p><img src="http://i.giphy.com/rnxOnmdjhamFq.gif" alt="alt text" /></p>
-
-<h2>Guess that means I&rsquo;ll entertain myself&hellip;with code memes</h2>
-
-<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/984df8dc-a09c-496b-846b-151ac3767477/00000184.png" alt="alt text" /></p>
-
-<h2>Ok back to work, this is how I often go about solving labs&hellip;</h2>
-
-<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/97f115b9-d4fd-434a-b300-c9022728c67b/00000178.png" alt="alt text" /></p>
-
-<h2>And sometimes I don&rsquo;t really know what I&rsquo;m doing</h2>
-
-<p><img src="http://i.giphy.com/1bffEtmXGc8Ny.gif" alt="alt text" /></p>
-
-<h2>But when a lab is complete, well, there are all sorts of feelings..</h2>
-
-<p><img src="http://img.chan4chan.com/img/2009-03-14/1237033560670.gif" alt="alt text" />
-<img src="http://i.giphy.com/BNBsX9OFigPvO.gif" alt="alt text" /> Ironbot pug me.
-<img src="http://i.giphy.com/dkGhBWE3SyzXW.gif" alt="alt text" /></p>
-
-<h2>In fact, I&rsquo;ve started to dream not only in code but also in green lights..</h2>
-
-<p><img src="http://www.thelightlab.com/wp-content/uploads/2014/01/6097196-background-of-blurred-green-christmas-lights.jpg" alt="alt text" /></p>
-
-<h2>And I&rsquo;m thinking about code on the subway among the &ldquo;Normals&rdquo;</h2>
-
-<p><img src="http://ep.yimg.com/ay/rnrdist/pinky-the-brain-prod-cel-2.jpg" alt="alt text" /></p>
-
-<h2>To me, programming in Ruby is just one of those things that feel oddly satisfying</h2>
-
-<p><img src="http://i.giphy.com/JsledhNuqgCKA.gif" alt="alt text" />
-<img src="http://i.giphy.com/heyCjLAj496Ao.gif" alt="alt text" />
-<img src="http://i.giphy.com/Y5z7Z32aI5xFS.gif" alt="alt text" /></p>
-
-<h2>Happy Halloween!</h2>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[The Nokogiri Saw]]></title>
-    <link href="http://kanaabe.github.io/blog/2014/10/16/the-nokogiri-saw/"/>
-    <updated>2014-10-16T22:39:01-04:00</updated>
-    <id>http://kanaabe.github.io/blog/2014/10/16/the-nokogiri-saw</id>
-    <content type="html"><![CDATA[<p>In Japanese, the term &ldquo;nokogiri&rdquo; refers to this:</p>
+    <link href="http://blog.kanaabe.com/blog/2014/10/16/the-nokogiri-saw/"/>
+    <updated>2014-10-16T15:57:26-04:00</updated>
+    <id>http://blog.kanaabe.com/blog/2014/10/16/the-nokogiri-saw</id>
+    <content type="html"><![CDATA[<p>In Japanese, the term “nokogiri” refers to this:</p>
 
-<p><img src="http://hsto.org/storage/habraeffect/11/8d/118d003d546a1fa1e240e1cc4dfb4a61.jpg" title="Nokogiri" alt="Nokogiri" /></p>
+<p><img src="http://hsto.org/storage/habraeffect/11/8d/118d003d546a1fa1e240e1cc4dfb4a61.jpg" alt="Nokogiri Saw" /></p>
 
-<p>It&rsquo;s a saw used for cutting wood, but instead of making the cut on the &ldquo;push&rdquo; like a traditional European saw, the Nokogiri saw cuts on the &ldquo;pull&rdquo;.</p>
+<p>It’s a saw used for cutting wood, but instead of making the cut on the “push” like a traditional European saw, the Nokogiri saw cuts on the “pull”.
+Coming from a small <a href="sites.google.com/site/digihumanlab/research">background</a> in Data Science, my brain lit up as soon as I was introduced to this magical gem.</p>
 
-<p>Coming from a small <a href="http://telegraph.co.uk/technology/news/11041814/Could-computers-put-art-historians-out-of-work.html">background</a> in Data Science, my brain lit up as soon as I was introduced to this magical gem.</p>
+<h2>Define the Problem</h2>
 
-<h3>DEFINE THE PROBLEM</h3>
+<p>After explaining to my boyfriend the concept of ‘scraping’, I asked him, “What do you want me to scrape for you?”
+“I want to know how to title my Reddit posts so it catches the most attention.”
+Great, problem defined.</p>
 
-<p>After explaining to my boyfriend the concept of &lsquo;scraping&rsquo;, I asked him, &ldquo;What do you want me to scrape for you?&rdquo;</p>
+<!--more-->
 
-<p>&ldquo;I want to know how to title my Reddit posts so it catches the most attention.&rdquo;</p>
 
-<p>Great, problem defined.</p>
-
-<h3>SPEC IT OUT</h3>
+<h2>Spec It Out</h2>
 
 <p>Immediately I understand that solving this problem will take lots and lots of data and time. Therefore, the goal of this blog post is to lay out the foundation of a project that I can build on.</p>
 
-<h3>Here is what I know:</h3>
+<h2>Here It What I Know:</h2>
 
 <ul>
 <li>I want to scrape Reddit using Nokogiri</li>
@@ -281,9 +216,9 @@
 </ul>
 
 
-<h3>DISCOVER ISSUES</h3>
+<h2>Discover Issues</h2>
 
-<p>One issue I encountered when trying to iterate through multiple pages is that the URL structure made no sense.</p>
+<p>One issue I encountered when trying to iterate through multiple pages is that the URL structure made no sense to me.</p>
 
 <p>Page 1 - <a href="http://www.reddit.com/">http://www.reddit.com/</a></p>
 
@@ -301,7 +236,7 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span class='line'>  <span class="n">str</span> <span class="o">=</span> <span class="s2">&quot;http://www.reddit.com/?count=&quot;</span>
 </span><span class='line'>  <span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
 </span><span class='line'>    <span class="n">reddit</span> <span class="o">&lt;&lt;</span> <span class="n">scrape_titles</span><span class="p">(</span><span class="n">str</span><span class="o">+</span><span class="p">(</span><span class="n">count</span><span class="o">+</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span>
@@ -310,17 +245,16 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This did not work. What ended up happening was that duplicate titles appeared in my array. In fact, no matter what value I inserted for count, it showed me the same page. It was clear that getting a static URL for &ldquo;Page 2 of Reddit&rsquo;s Front Page&rdquo; was not available. Based on the URL and HTML, the &lsquo;after&rsquo; parameter was checking the ID of the post and creating content based on that. The &lsquo;count&rsquo; param was irrelavent.</p>
+<p>This did not work. What ended up happening was that duplicate titles appeared in my array. In fact, no matter what value I inserted for count, it showed me the same page. It was clear that getting a static URL for “Page 2 of Reddit’s Front Page” was not available. Based on the URL and HTML, the ‘after’ parameter was checking the ID of the post and creating content based on that. The ‘count’ param was irrelavent.</p>
 
-<h3>CONTINUE ANYWAY..</h3>
+<h2>Continue Anyway..</h2>
 
 <p>Instead of iterating through the front page titles, I decided to find the titles on the each of the Reddit subheading pages will do.</p>
 
-<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/80a85640-8525-490e-ac5e-66b869adda92/00000166.png" title="Reddit Subheading" alt="Reddit Subheading" /></p>
+<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/80a85640-8525-490e-ac5e-66b869adda92/00000166.png" alt="Reddit" /></p>
 
-<p>(Note: I excluded gilded, wiki, and promoted)</p>
-
-<p>Below is the code I have for my scraper class.</p>
+<p>(Note: I excluded gilded, wiki, and promoted)
+Below is the code I have for my scraper class.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -373,14 +307,13 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Running <code>RedditScraper.new.initialize_all_titles</code> returns an <code>Array</code> with all my title names. Awesome!</p>
+<p>Running RedditScraper.new.initialize_all_titles returns an Array with all my title names. Awesome!
+Here is a sample of my output so far</p>
 
-<p>Here is a sample of my output so far
-<img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/4ce3c544-0f71-4bec-b463-7e0a19b0f55c/00000168.png" alt="Titles Array" /></p>
+<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/4ce3c544-0f71-4bec-b463-7e0a19b0f55c/00000168.png" alt="Results" /></p>
 
-<p>Next I need to analyze this data. What I really want to do is to find the frequency of each of the words to see &ldquo;what&rsquo;s trending&rdquo; right now. I created a class called <code>RedditAnalyzer</code> which allows me to do this.</p>
-
-<p>Lets iterate through our titles array, graciously given to us by <code>RedditScraper</code>, find individual words, and keep a frequency count each time I come across this word.</p>
+<p>Next I need to analyze this data. What I really want to do is to find the frequency of each of the words to see “what’s trending” right now. I created a class called RedditAnalyzer which allows me to do this.
+Lets iterate through our titles array, graciously given to us by RedditScraper, find individual words, and keep a frequency count each time I come across this word.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -431,7 +364,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Two more functions I decided to add are below. <code>delete_common</code> is called from <code>top_20</code> and removes the 100 most common words in the English language. The <code>top_20</code> function prints out the top 20 most frequently used words.</p>
+<p>Two more functions I decided to add are below. delete_common is called from top_20 and removes the 100 most common words in the English language. The top_20 function prints out the top 20 most frequently used words.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -452,7 +385,7 @@
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">top_20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">top_20</span>
 </span><span class='line'>    <span class="n">delete_common</span>
 </span><span class='line'>    <span class="n">sorted</span> <span class="o">=</span> <span class="vc">@@frequency</span><span class="o">.</span><span class="n">sort_by</span> <span class="p">{</span><span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="o">-</span><span class="n">v</span><span class="p">}</span>
 </span><span class='line'>    <span class="n">sorted</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">word</span><span class="p">,</span><span class="n">ind</span><span class="o">|</span>
@@ -474,7 +407,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>AND FINALLY..THE TOP 20 MOST FREQUENT WORDS USED IN A TITLE ON REDDIT AT 3:41AM ON 10/17:</h3>
+<h2>AND FINALLY..THE TOP 20 MOST FREQUENT WORDS USED IN A TITLE ON REDDIT AT 3:41AM ON 10/17:</h2>
 
 <p>i with frequency 18</p>
 
@@ -482,7 +415,7 @@
 
 <p>til with frequency 6</p>
 
-<p>&lsquo;-&rsquo; with frequency 5</p>
+<p>‘-’ with frequency 5</p>
 
 <p>why with frequency 5</p>
 
@@ -512,23 +445,22 @@
 
 <p>sick with frequency 3</p>
 
-<p>don&rsquo;t with frequency 3</p>
+<p>don’t with frequency 3</p>
 
 <p>eli5: with frequency 3</p>
 
-<h2>HOW ABOUT: &ldquo;TIL: WHY 18 MILLION DON&rsquo;T TRAVEL WHILE MAN IS SICK WITH EBOLA&rdquo;</h2>
+<h2>“TIL: WHY 18 MILLION DON’T TRAVEL WHILE MAN IS SICK WITH EBOLA”</h2>
 
-<p>Maybe I should create some bots next&hellip;</p>
+<p>Maybe I should create some bots next…</p>
 
-<p>Full repo:
-<a href="https://github.com/kanaabe/scraping_reddit">https://github.com/kanaabe/scraping_reddit</a></p>
+<p>Full repo: <a href="https://github.com/kanaabe/scraping_reddit">https://github.com/kanaabe/scraping_reddit</a></p>
 
-<h4>TODO LIST</h4>
+<h2>TODO LIST</h2>
 
 <ul>
-<li>get rid of that &lsquo;-&rsquo; word</li>
+<li>get rid of that ‘-’ word</li>
 <li>add visualization using another Ruby gem</li>
-<li>possibly add more &lsquo;common words&rsquo;</li>
+<li>possibly add more ‘common words’</li>
 <li>refactor some methods from above, I was being hasty.</li>
 </ul>
 
