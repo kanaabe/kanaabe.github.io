@@ -13,7 +13,7 @@
   <meta name="author" content="Kana Abe">
 
   
-  <meta name="description" content="All Posts Getting Started With SVG Getting Started With SVG Everyone seems to have at least some interest in data visualization lately. It’s pretty &hellip;">
+  <meta name="description" content="All Posts Adding Social Icons With Font Awesome Font Awesome is, well, pretty awesome. It provides you with fully scalable vector icons that can be &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -26,6 +26,7 @@
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Code Snacks" type="application/atom+xml">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -50,6 +51,198 @@
 
   <div class="article-list">
     <div class="container">
+      
+      
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <article>
+  <h2><a href="/blog/2015/01/12/adding-social-icons-with-font-awesome/">Adding Social Icons With Font Awesome</a></h2>
+  
+  <p>
+    <p><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> is, well, pretty awesome. It provides you with fully scalable vector icons that can be customized with CSS. It&rsquo;s also free to use and very quick to get started with. Check out some of their icons <a href="http://fortawesome.github.io/Font-Awesome/icons/">here</a>.</p>
+
+
+
+
+<h2>Download</h2>
+
+
+
+
+<p>You can download the toolkit <a href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome-4.2.0.zip">here</a> and add it to your project as an asset OR, just use their CDN.</p>
+
+
+
+
+<p>Add the following code to the <code>&lt;head&gt;</code> of your page&rsquo;s HTML.</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span><span class="nt">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2>Usage</h2>
+
+
+
+
+<p>Using the icons is easy. The thing to keep in mind is that the icon lives in an <code>&lt;i&gt;</code> tag. You can choose icons by changing the value of the class attribute. The example below is a simple one, for the Twitter icon.</p>
+
+
+
+
+<p><i class="fa fa-twitter"></i> fa-twitter</p>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-twitter&quot;</span><span class="nt">&gt;&lt;/i&gt;</span> fa-twitter
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2>Making Social Icons</h2>
+
+
+
+
+<p>You can easily combine different classes to form icons with circular, square, and inverted backgrounds. The example below shows three icons made by stacking icons on top of each other using the <code>fa-stack</code> class.</p>
+
+
+
+
+<div class="social-icons">
+    <a href="mailto:kanakoabe5@gmail.com"><span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+    </span></a>
+    <a href="http://twitter.com/kana_abe" target="_blank"><span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+    </span></a>
+    <a href="http://instagram.com/kanaabe" target="_blank"><span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+    </span></a>
+</div>
+
+
+
+
+<hr />
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;social-icons&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;mailto:kanakoabe5@gmail.com&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;fa-stack fa-lg&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-circle fa-stack-2x&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-envelope-o fa-stack-1x fa-inverse&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://twitter.com/kana_abe&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;fa-stack fa-lg&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-circle fa-stack-2x&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-twitter fa-stack-1x fa-inverse&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://instagram.com/kanaabe&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;fa-stack fa-lg&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-circle fa-stack-2x&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-instagram fa-stack-1x fa-inverse&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/a&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p>The code above shows how the icons are made. Each icon lives in an <code>&lt;a&gt;</code> tag which references my social outlets. The <code>&lt;span&gt;</code> tag contains two classes, the <code>fa-stack</code> which allows icons to be placed on top of each other, and the <code>fa-lg</code> class to control the sizing.</p>
+
+
+
+
+<p>The individual <code>&lt;i&gt;</code> tags have the required <code>fa</code> class, the icon itself, and an <code>fa-stack-1x</code> or <code>fa-stack-2x</code> class. The difference between the last two classes changes depending on which icon is on top. The background icon (the circle in this case) should contain the <code>fa-stack-2x</code> class while the foreground, or the main icon should contain the <code>fa-stack-1x</code> class.</p>
+
+
+
+
+<p>In this example, I also use the <code>fa-inverse</code> class on the main icons. This is because the circles are by default, colored, which means that placing a regular icon on top of it without &lsquo;fa-inverse&rsquo; will just result in a colored circle like this:</p>
+
+
+
+
+<p><a href="http://instagram.com/kanaabe" target="_blank"><span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-instagram fa-stack-1x"></i>
+</span></a></p>
+
+
+
+
+<p>The icon is there, but the color of the main icon is not inverted so it blends with the background color.</p>
+
+
+
+
+<p>So far, I haven&rsquo;t had any problems with Font Awesome, especially since it&rsquo;s free to use. I spent hours looking for a set of pre-made icons on PSD files that could have worked, but I found that having control over the CSS and relying on the hosted icons worked best for me.</p>
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-01-12T14:25:20-05:00" pubdate data-updated="true"></time>
+    
+
+
+  </span>
+
+  
+</article>
+
+        </div>
+      </div>
       
       
       <div class="row">
