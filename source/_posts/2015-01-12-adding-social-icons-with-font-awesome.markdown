@@ -10,7 +10,7 @@ categories:
 
 ## Download
 You can download the toolkit [here](http://fortawesome.github.io/Font-Awesome/assets/font-awesome-4.2.0.zip) and add it to your project as an asset OR, just use their CDN. 
-
+<!-- more -->
 Add the following code to the `<head>` of your page's HTML. 
 
 ```html
