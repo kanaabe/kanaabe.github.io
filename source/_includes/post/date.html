@@ -3,6 +3,7 @@
 	{% if post.date_formatted %}
 		{{ post.date_formatted}}
 	{% else %}
+		{{ page.date | date: "%m-%d-%Y" }}
 		{{ post.date | date: "%m-%d-%Y" }}
 	{% endif %}
 {% endcapture %}
