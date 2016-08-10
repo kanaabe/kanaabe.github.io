@@ -9,7 +9,7 @@ categories: writing
 Starting 2015, I wanted to write code every day. This meant making at least one meaningful open-source commit each day. It was inspired by John Resig in [this post](http://ejohn.org/blog/write-code-every-day/). All was going well, I felt confident, and submitted good code.
 
 And then I broke it on January 3. 
-
+<!-- more -->
 Just 6 days in (I started December 28) and I couldn't keep up with my grand plan. Needless to say I was embarrassed and thought this would be impossible. Well, it is. I mean it's *possible* to write code every day for the rest of your life but in a realistic life-setting, mistakes happen, life happens. **You can't expect to form a concrete habit in one shot**. 
 
 Just keep swimming. All I can ask of myself is that the next time I break the streak, it better be longer than 6 days and it *better* be for a good reason. My current streak is 12 days and I'm feeling pretty happy. In fact, I'm really proud of all the work that's been done in just 12 days. 
