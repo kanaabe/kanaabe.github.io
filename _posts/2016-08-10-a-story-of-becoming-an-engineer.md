@@ -1,19 +1,21 @@
 ---
 layout: post
-title:  "How I Got To Six Figures By 24"
+title:  "A Story of Becoming an Engineer"
 date:   2016-08-10 18:48:00 -0400
 categories: writing
 ---
 
-** Disclaimer: I will not talk about money in this post.
-
-In 2009, when I was a 19 year old freshman, I saw Ed Catmull speak at UC Santa Cruz. Afterwards, I waited in line to talk to Ed and told him I wanted to do R&D at Pixar. I asked him what I should major in with that goal in mind. He said, Art and Computer Science, so I did exactly that.
+In 2009, when I was a 19 year old freshman, I saw Ed Catmull speak at UC Santa Cruz. Afterwards, I waited in line to talk to Ed and told him I wanted to do R&D at Pixar. I asked him what I should major in. He said Art and Computer Science, so I did exactly that.
 
 ### College
 
-My sophomore year I transferred to Rutgers University in New Jersey, my homestate, because out-of-state tuition was getting out-of-hand. That sophomore year was hard, though. I was severely depressed after the transfer because I was trying to hold onto a long-term relationship that tore me apart. My close friend Goh had committed suicide that year as well. We were both new to Rutgers (himself a freshman) and we often used to talk about jazz, relationships, and life. One enjoyable thing about that year was discovering the duality of being around art and science nerds, even though there was never any overlap.
+I spent a year at UC Santa Cruz and took a variety of classes like Linguistics and The History of Disney. It was the first time I was truly by myself, without my twin sister there by me. I lost a lot of focus then -- I became depressed and paranoid by the end of the year and did too many drugs. I loved the people and the campus but it wasn't worth paying $26K a year.
 
-As a junior, I took Intro to Computer Graphics and I didn't love it, which was a let down considering I wanted to be in Computer Animation. However, I also took Imaging and Multimedia and that, I loved. I remember my fascination at how simple it was to apply a filter to an image based on image kernels. Since I was interested in R&D, I asked that professor if I could work on any research in the Computer Vision department. I told him I would get back to him with an idea for a paper. On the flip side, I noticed a pattern in my art history classes: they were all structured linearlly. Monet's Impressionist style influenced Van Gogh and Post-Impressionism, which catapulted Cubism, Expressionism, and Dadaism, which projected Dali and Surrealism, etc etc. I propsed to Professor Elgammal the idea that maybe computers could do all this work and discover even more.
+My sophomore year I transferred to Rutgers University in New Jersey, my homestate. That sophomore year was also hard. It was the lowest point of my life so far for the depression for many reasons. I was trying to hold onto a long-term relationship from Santa Cruz that tore me apart. I brought with me a Santa Cruz mindset that didn't fit into the frat-heavy Rutgers. My close friend Goh had committed suicide that year. We were both new to Rutgers (himself a freshman) and we often used to talk about jazz, relationships, and life.
+
+One enjoyable part of that year was being in Computer Science and Visual Art classes. The context switching was entertaining and it was fun being around both art and science nerds. Unfortunately I didn't find much overlap.
+
+As a junior, I took Intro to Computer Graphics and I didn't love it, which was a let down considering I wanted to be in Computer Animation. However, I also took Imaging and Multimedia and that, I loved. I remember my fascination at how simple it was to apply a filter to an image based on image kernels. Since I was interested in R&D, I asked that professor if I could work on any research in the Computer Vision department. I told him I would get back to him with an idea for a paper. One day a pattern emerged in my art history classes: all the courses were all structured linearlly. Monet's Impressionist style influenced Van Gogh and Post-Impressionism, which catapulted Cubism, Expressionism, and Dadaism, which projected Dali and Surrealism, etc etc. I propsed to Professor Elgammal the idea that maybe computers could do all this work and discover even more.
 
 My senior year, I started working a lot on this research topic, and started to break down what elements of an artwork art historians might look at to determine where the influences might be hiding. It turns out that categorization of artwork is pretty important. To be able to determine what influences a painting, we should be able to categorize it first. Since art history is written by humans and is subjective anyway, I didn't see why computers couldn't try it.
 
@@ -21,7 +23,7 @@ The paper turned out to be pretty popular and people around the Internet wrote a
 
 In my art classes, I did a few Arduino projects and started a magazine called Trim with a friend. It was the complete opposite of the stuff I was doing in the CBIM labs. We were organizing photo shoots, contacting models, and trying to get people to everything for free. It was hard and there were a lot of late nights.
 
-Overall my senior year was the most stressed I had ever been. I had to plan out every minute of my life including when I would have time to grab a bite, and if I should bring a toothbrush in case I pull an all-nighter in the library. I had a part-time job, the research project, TRIM magazine, social life, and I was trying to complete an intensive double major in three years. All my guidance counselors said I couldn't do it but I did.
+Overall my senior year was the most stressed I had ever been. I had to plan out every minute of my life including when I would have time to grab a bite, and if I should bring a toothbrush in case I pull an all-nighter in the library. I had a part-time job, the research project, TRIM magazine, social life, and I was trying to complete an intensive double major in three years. All my guidance counselors said I couldn't do it but I fucking did it.
 
 ### Sailthru
 
