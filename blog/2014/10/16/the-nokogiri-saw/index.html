@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The Nokogiri Saw - Code Snacks</title>
+  <meta name="author" content="Kana Abe">
+
+  
+  <meta name="description" content="The Nokogiri Saw written 10-16-2014 In Japanese, the term “nokogiri” refers to this: It’s a saw used for cutting wood, but instead of making the cut &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.kanaabe.com/blog/2014/10/16/the-nokogiri-saw">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code Snacks" type="application/atom+xml">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+
+</head>
+
+  <body>
+    <a href="/" class="home-icon">
+      <img src="/images/home.png"/>
+    </a>
+
+    <article role="article" class="full-single-article">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>The Nokogiri Saw</h1>
+        <div class="meta">
+          written 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-16T21:57:26+02:00" pubdate data-updated="true">
+	
+		10-16-2014
+		
+	
+</time>
+          
+
+
+        </div>
+        <p>In Japanese, the term “nokogiri” refers to this:</p>
+
+<p><img src="http://hsto.org/storage/habraeffect/11/8d/118d003d546a1fa1e240e1cc4dfb4a61.jpg" alt="Nokogiri Saw" /></p>
+
+<p>It’s a saw used for cutting wood, but instead of making the cut on the “push” like a traditional European saw, the Nokogiri saw cuts on the “pull”.
+Coming from a small <a href="sites.google.com/site/digihumanlab/research">background</a> in Data Science, my brain lit up as soon as I was introduced to this magical gem.</p>
+
+<h2>Define the Problem</h2>
+
+<p>After explaining to my boyfriend the concept of ‘scraping’, I asked him, “What do you want me to scrape for you?”
+“I want to know how to title my Reddit posts so it catches the most attention.”
+Great, problem defined.</p>
+
+<!--more-->
+
+
+<h2>Spec It Out</h2>
+
+<p>Immediately I understand that solving this problem will take lots and lots of data and time. Therefore, the goal of this blog post is to lay out the foundation of a project that I can build on.</p>
+
+<h2>Here It What I Know:</h2>
+
+<ul>
+<li>I want to scrape Reddit using Nokogiri</li>
+<li>I want to retrieve the titles of each post</li>
+<li>I want to use these titles and add them to some data structure I can iterate on</li>
+<li>I want to find the most frequently used words</li>
+<li>The Reddit RSS would be cool to use but I want to practice scraping.</li>
+</ul>
+
+
+<h2>Discover Issues</h2>
+
+<p>One issue I encountered when trying to iterate through multiple pages is that the URL structure made no sense to me.</p>
+
+<p>Page 1 - <a href="http://www.reddit.com/">http://www.reddit.com/</a></p>
+
+<p>Page 2 - <a href="http://www.reddit.com/?count=25&amp;after=t3_2jg309">http://www.reddit.com/?count=25&amp;after=t3_2jg309</a></p>
+
+<p>Page 3 - <a href="http://www.reddit.com/?count=50&amp;after=t3_2jg30w">http://www.reddit.com/?count=50&amp;after=t3_2jg30w</a></p>
+
+<p>Page 4 - <a href="http://www.reddit.com/?count=75&amp;after=t3_2jgfto">http://www.reddit.com/?count=75&amp;after=t3_2jgfto</a></p>
+
+<p>At first I figured that iterating through increments of 25 in the count parameter of the URL would work since each page contains 25 items.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="n">str</span> <span class="o">=</span> <span class="s2">&quot;http://www.reddit.com/?count=&quot;</span>
+</span><span class='line'>  <span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">reddit</span> <span class="o">&lt;&lt;</span> <span class="n">scrape_titles</span><span class="p">(</span><span class="n">str</span><span class="o">+</span><span class="p">(</span><span class="n">count</span><span class="o">+</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">25</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This did not work. What ended up happening was that duplicate titles appeared in my array. In fact, no matter what value I inserted for count, it showed me the same page. It was clear that getting a static URL for “Page 2 of Reddit’s Front Page” was not available. Based on the URL and HTML, the ‘after’ parameter was checking the ID of the post and creating content based on that. The ‘count’ param was irrelavent.</p>
+
+<h2>Continue Anyway..</h2>
+
+<p>Instead of iterating through the front page titles, I decided to find the titles on the each of the Reddit subheading pages will do.</p>
+
+<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/80a85640-8525-490e-ac5e-66b869adda92/00000166.png" alt="Reddit" /></p>
+
+<p>(Note: I excluded gilded, wiki, and promoted)
+Below is the code I have for my scraper class.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">RedditScraper</span>
+</span><span class='line'>  <span class="vc">@@reddit</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="no">PAGES</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;/new/&quot;</span><span class="p">,</span><span class="s2">&quot;/rising/&quot;</span><span class="p">,</span><span class="s2">&quot;/controversial/&quot;</span><span class="p">,</span><span class="s2">&quot;/top/&quot;</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize_all_titles</span>
+</span><span class='line'>    <span class="n">str</span> <span class="o">=</span> <span class="s2">&quot;http://www.reddit.com&quot;</span>
+</span><span class='line'>    <span class="no">PAGES</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">page</span><span class="o">|</span>
+</span><span class='line'>      <span class="vc">@@reddit</span> <span class="o">&lt;&lt;</span> <span class="n">scrape_titles</span><span class="p">(</span><span class="n">str</span><span class="o">+</span><span class="n">page</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="vc">@@reddit</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">flatten</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">scrape_titles</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">doc</span> <span class="o">=</span> <span class="no">Nokogiri</span><span class="o">::</span><span class="no">HTML</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">str</span><span class="p">))</span>
+</span><span class='line'>    <span class="n">arr</span><span class="o">=[]</span>
+</span><span class='line'>    <span class="n">doc</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;a.title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">title</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">arr</span> <span class="o">&lt;&lt;</span> <span class="n">title</span><span class="o">.</span><span class="n">text</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="n">arr</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Running RedditScraper.new.initialize_all_titles returns an Array with all my title names. Awesome!
+Here is a sample of my output so far</p>
+
+<p><img src="http://content.screencast.com/users/kabesailthru/folders/Jing/media/4ce3c544-0f71-4bec-b463-7e0a19b0f55c/00000168.png" alt="Results" /></p>
+
+<p>Next I need to analyze this data. What I really want to do is to find the frequency of each of the words to see “what’s trending” right now. I created a class called RedditAnalyzer which allows me to do this.
+Lets iterate through our titles array, graciously given to us by RedditScraper, find individual words, and keep a frequency count each time I come across this word.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">RedditAnalyzer</span>
+</span><span class='line'>  <span class="vc">@@frequency</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">call</span>
+</span><span class='line'>    <span class="n">scraper</span> <span class="o">=</span> <span class="no">RedditScraper</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">initialize_all_titles</span>
+</span><span class='line'>    <span class="n">add</span><span class="p">(</span><span class="n">scraper</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1">#binding.pry</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">arr</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">title</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">title</span><span class="o">.</span><span class="n">downcase</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">word</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[,.\[\]&#39;?!-\&quot;]/</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vc">@@frequency</span><span class="o">[</span><span class="n">word</span><span class="o">]</span>
+</span><span class='line'>          <span class="vc">@@frequency</span><span class="o">[</span><span class="n">word</span><span class="o">]</span> <span class="o">=</span> <span class="vc">@@frequency</span><span class="o">[</span><span class="n">word</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>          <span class="vc">@@frequency</span><span class="o">[</span><span class="n">word</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Two more functions I decided to add are below. delete_common is called from top_20 and removes the 100 most common words in the English language. The top_20 function prints out the top 20 most frequently used words.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">top_20</span>
+</span><span class='line'>    <span class="n">delete_common</span>
+</span><span class='line'>    <span class="n">sorted</span> <span class="o">=</span> <span class="vc">@@frequency</span><span class="o">.</span><span class="n">sort_by</span> <span class="p">{</span><span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="o">-</span><span class="n">v</span><span class="p">}</span>
+</span><span class='line'>    <span class="n">sorted</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">word</span><span class="p">,</span><span class="n">ind</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="si">}</span><span class="s2"> with frequency </span><span class="si">#{</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">ind</span> <span class="o">&lt;=</span><span class="mi">19</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">delete_common</span>
+</span><span class='line'>    <span class="n">text</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>    <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;resources/common_words.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">each_line</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">text</span> <span class="o">&lt;&lt;</span> <span class="n">line</span><span class="o">.</span><span class="n">chop</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="vc">@@frequency</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">word</span><span class="p">,</span><span class="n">v</span><span class="o">|</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</span><span class='line'>        <span class="vc">@@frequency</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>AND FINALLY..THE TOP 20 MOST FREQUENT WORDS USED IN A TITLE ON REDDIT AT 3:41AM ON 10/17:</h2>
+
+<p>i with frequency 18</p>
+
+<p>not with frequency 10</p>
+
+<p>til with frequency 6</p>
+
+<p>‘-’ with frequency 5</p>
+
+<p>why with frequency 5</p>
+
+<p>using with frequency 5</p>
+
+<p>just with frequency 4</p>
+
+<p>man with frequency 4</p>
+
+<p>ebola with frequency 4</p>
+
+<p>good with frequency 4</p>
+
+<p>best with frequency 4</p>
+
+<p>only with frequency 4</p>
+
+<p>18 with frequency 3</p>
+
+<p>while with frequency 3</p>
+
+<p>million with frequency 3</p>
+
+<p>travel with frequency 3</p>
+
+<p>guy with frequency 3</p>
+
+<p>sick with frequency 3</p>
+
+<p>don’t with frequency 3</p>
+
+<p>eli5: with frequency 3</p>
+
+<h2>“TIL: WHY 18 MILLION DON’T TRAVEL WHILE MAN IS SICK WITH EBOLA”</h2>
+
+<p>Maybe I should create some bots next…</p>
+
+<p>Full repo: <a href="https://github.com/kanaabe/scraping_reddit">https://github.com/kanaabe/scraping_reddit</a></p>
+
+<h2>TODO LIST</h2>
+
+<ul>
+<li>get rid of that ‘-’ word</li>
+<li>add visualization using another Ruby gem</li>
+<li>possibly add more ‘common words’</li>
+<li>refactor some methods from above, I was being hasty.</li>
+</ul>
+
+
+
+        <hr class="divider-short"/>
+
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="twitter-share">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="kana_abe" data-size="large">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+<hr class="divider-short"/>
+
+<div class="archive-link">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+
+        
+          <a class="pull-right" href="/blog/2014/11/13/getting-started-with-svg/" title="Next Post: Getting Started with SVG">Next: Getting Started with SVG &raquo;</a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="her-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+  <a href="/"><h4>Home</h4></a>
+</div>
+
+<div class="col-md-2">
+  <div class="social-icon-list">
+    
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+<div class="pull-right">
+  <h4>Powered by <a href="http://octopress.org/">Octopress</a>. Designed by <a href="http://AdrianArtiles.com">Adrian Artiles</a>.</h4>
+</div>
+
+
+    </div>
+  </div>
+</footer>
+
+    
+  </body>
+</html>

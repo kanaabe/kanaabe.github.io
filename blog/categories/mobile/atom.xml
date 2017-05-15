@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mobile | Code Snacks]]></title>
+  <link href="http://blog.kanaabe.com/blog/categories/mobile/atom.xml" rel="self"/>
+  <link href="http://blog.kanaabe.com/"/>
+  <updated>2017-05-15T13:39:54+02:00</updated>
+  <id>http://blog.kanaabe.com/</id>
+  <author>
+    <name><![CDATA[Kana Abe]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to Access Localhost on Your Phone]]></title>
+    <link href="http://blog.kanaabe.com/blog/2017/05/15/how-to-access-localhost-on-your-phone/"/>
+    <updated>2017-05-15T12:36:42+02:00</updated>
+    <id>http://blog.kanaabe.com/blog/2017/05/15/how-to-access-localhost-on-your-phone</id>
+    <content type="html"><![CDATA[<p>This post explains how to make localhost work on your mobile device.</p>
+
+<!-- more -->
+
+
+<p>Find the IP of your desktop machine. You can use <code>ifconfig</code> on mac to pull your public IP. Look for it in the <code>en0</code> section of the result:</p>
+
+<pre><code>&gt; ifconfig
+en0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500
+  ether ---
+  inet6 ---
+  inet 1111.00.11.1 netmask 0xffffff00 broadcast 1111.00.11.2
+  nd6 ---
+  media: autoselect
+  status: active
+</code></pre>
+
+<p>Make sure localhost is running, and that both your phone and browser are connected to the same network. Then, simply go to the IP address on your phone along with the port number. For example, if my IP is <code>1111.00.11.1</code> and my localhost is opening port 5000, go to <code>1111.00.11.1:5000</code> on your phone.</p>
+]]></content>
+  </entry>
+  
+</feed>
